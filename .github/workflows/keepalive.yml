@@ -1,0 +1,25 @@
+name: Supabase Keep Alive (HocaNet + DersMatik)
+
+on:
+  schedule:
+    - cron: "0 */12 * * *"   # her 12 saatte bir çalışır
+  workflow_dispatch:
+
+jobs:
+  ping-multiple:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - project_id: "klmwzjnnnzllmiuvoizy"
+            secret_name: "SUPABASE_KEY_HOCANET"
+            friendly: "HocaNet"
+          - project_id: "iyfaltfmyoyduhzifwfy"
+            secret_name: "SUPABASE_KEY_DERSMATIK"
+            friendly: "DersMatik"
+
+    steps:
+      - name: Ping Supabase - ${{ matrix.friendly }}
+        run: |
+          echo "Pinging project ${{ matrix.friendly }} (${{ matrix.project_id }})"
+          curl -s -o /dev/null -w "%{http_code}" -i -H "apikey: ${{ secrets[matrix.secret_name] }}" "https://${{ matrix.project_id }}.supabase.co/rest/v1"
