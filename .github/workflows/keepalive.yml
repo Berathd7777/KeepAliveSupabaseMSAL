@@ -1,4 +1,4 @@
-name: Supabase Keep Alive (HocaNet + DersMatik)
+name: Supabase Keep Alive (HocaNet + DersMatik + MsalAI)
 
 on:
   schedule:
@@ -17,6 +17,9 @@ jobs:
           - project_id: "iyfaltfmyoyduhzifwfy"
             secret_name: "SUPABASE_KEY_DERSMATIK"
             friendly: "DersMatik"
+          - project_id: "cwwhdoqgocumltxxwfag"
+            secret_name: "SUPABASE_KEY_MSALAI"
+            friendly: "MsalAI"
 
     steps:
       - name: Ping Supabase - ${{ matrix.friendly }}
