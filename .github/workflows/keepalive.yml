@@ -17,7 +17,7 @@ jobs:
           - project_id: "iyfaltfmyoyduhzifwfy"
             secret_name: "SUPABASE_KEY_DERSMATIK"
             friendly: "DersMatik"
-          - project_id: "cwwhdoqgocumltxxwfag"
+          - project_id: "jbsfpckdwgsdzfdhlbpa"
             secret_name: "SUPABASE_KEY_MSALAI"
             friendly: "MsalAI"
 
